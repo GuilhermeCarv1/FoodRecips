@@ -4,23 +4,22 @@ import { GlobalContext } from "../../context";
 
 export default function Navbar() {
   const { searchParam, setSearchParam , handleSubmit } = useContext(GlobalContext);
-  
+
   console.log(searchParam);
 
   return (
-    <nav className="flex justify-between gray-100 items-center py-8 container mx-auto flex-col lg:flex-row gap-5 lg:gap-0">
+    <nav className="flex justify-between items-center py-8 container mx-auto flex-col lg:flex-row gap-5 lg:gap-0">
       <h2 className="text-2xl font-semibold">
         <NavLink to={"/"}>FoodRecipe</NavLink>
       </h2>
-      
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="search"
           value={searchParam}
           onChange={(event) => setSearchParam(event.target.value)}
-          placeholder="Digite os itens..."
-          className="bg-white/75 p-3 px-8 rounded-full outline-none lg:w-96 shadow-lg shadow-red-100 focus"
+          placeholder="Enter Items..."
+          className="bg-white/75 p-3 px-8 rounded-full outline-none lg:w-96 shadow-lg shadow-red-100 focus:shadow-red-200"
         />
       </form>
       <ul className="flex gap-5">
@@ -29,15 +28,15 @@ export default function Navbar() {
             to={"/"}
             className="text-black hover:text-gray-700 duration-300"
           >
-            Início
+            Home
           </NavLink>
         </li>
         <li>
           <NavLink
-            to={"/favoritos"}
+            to={"/favorites"}
             className="text-black hover:text-gray-700 duration-300"
           >
-            Favoritos
+            favorites
           </NavLink>
         </li>
       </ul>
